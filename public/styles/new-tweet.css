@@ -32,3 +32,6 @@ input{
 .counter{
   float: right;
 }
+
+.red {
+  color:red;}
