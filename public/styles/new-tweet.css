@@ -35,3 +35,11 @@ input{
 
 .red {
   color:red;}
+
+#error {
+  color:red;
+  font-weight: bold;
+  margin: auto;
+  width: 70%;
+  padding-left: 15px;
+}

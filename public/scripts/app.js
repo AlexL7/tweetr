@@ -6,55 +6,6 @@
  'use strict';
 $(document).ready(function(){
 
-
- var data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "<script>alert('uh oh!');</script>"
-    },
-    "created_at": 1461113796368
-  }
-];
-
-
 // @description : joins the converted tweet data into one continuous html string
 //                and attaches it to the page
 
@@ -63,13 +14,12 @@ function renderTweets(tweetdata){
   var htmlString = '';
 
   tweetdata.forEach(function(tweetelm) {
-    htmlString += createTweetElement(tweetelm);
+    htmlString = createTweetElement(tweetelm) + htmlString ;
 
   });
-  var $tweets = $('#tweets-container').append(htmlString);
+  var $tweets = $('#tweets-container').prepend(htmlString);
   return $tweets;
 }
-
 
 // @description: converts the tweet object data into an html string
 
@@ -87,7 +37,6 @@ function createTweetElement (tweetobj){
 
   return html_data;
 }
-
 // @description : escape function to prevent cross-stie scripting
 
 function escape(str) {
@@ -96,8 +45,57 @@ function escape(str) {
   return div.innerHTML;
 }
 
+//@description: loads json data into tweets for the page
+
+function loadTweets (_cb){
+ const ROOT_URL = 'http://localhost:8080';
+
+     $.ajax({
+            method: 'GET',
+            url: `${ROOT_URL}/tweets`,
+            dataType: 'json',
+            success: (incomingtweets) => {
+              _cb(incomingtweets);
+            }
+
+      });
+
+};
+
+//@description: takes in new-tweet submission and checks for errors
+//              and sends post to server.
+
+ const tweetsubmit = () => {
+    $("form").submit(function(ev){
+      (ev).preventDefault();
+      const textcontent = $('#tweettextsub').val();
+
+      if(textcontent === ''){
+         $("#error").text("Input Empty, please tweet");
+         return error;
+      }
+       if(textcontent.length > 140){
+        $("#error").text("Tweet too long. MAX 140 characters");
+        return error
+      }
+
+        $("#error").empty();
+
+         $.ajax({
+            method: 'POST',
+            url: "/tweets",
+            data: $('form').serialize(),
+            success: (response) => {
+              loadTweets(renderTweets);
+            },
+    });
+    });
 
 
-renderTweets(data);
+  }
 
+
+
+tweetsubmit();
+loadTweets(renderTweets);
 });

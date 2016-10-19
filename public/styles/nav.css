@@ -25,3 +25,16 @@ padding-left: 2em;
   transform: translateY(-50%);
 
 }
+
+#nav-bar div{
+  margin-top: 25px;
+  border:solid;
+  color:#00a087;
+  background-color: lightgreen;
+  border-radius: 10px;
+  text-align:center;
+  padding-top: 50px
+  padding-bottom: 50px;
+  float:right;
+
+}
