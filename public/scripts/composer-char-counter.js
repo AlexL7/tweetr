@@ -15,19 +15,4 @@ $(document).ready(function(){
     }
   })
 
-
-  $('article').hover(function(){
-    $('.icons').addClass("appear");
-    }, function(){
-    $('.icons').removeClass("appear");
-  });
-
-  $('article').hover(function(){
-    $('header').addClass("hover");
-    }, function(){
-    $('header').removeClass("hover");
-  });
-
-
-
 });
