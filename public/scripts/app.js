@@ -9,23 +9,31 @@ $(document).ready(function(){
 // @description : joins the converted tweet data into one continuous html string
 //                and attaches it to the page
 
+
+
+
+
 function renderTweets(tweetdata){
 
   var htmlString = '';
 
   tweetdata.forEach(function(tweetelm) {
     htmlString = createTweetElement(tweetelm) + htmlString ;
-
   });
+  $('#tweets-container').empty();
   var $tweets = $('#tweets-container').prepend(htmlString);
   return $tweets;
 }
+
+
+
+
 
 // @description: converts the tweet object data into an html string
 
 function createTweetElement (tweetobj){
 
- var html_data = `<article class= "tweet"><header><img class= "profilepic" src="${tweetobj.user.avatars.small}">
+ var html_data = `<article class="tweet"><header><img class= "profilepic" src="${tweetobj.user.avatars.small}">
           <div class="username"> ${tweetobj.user.name}</div>
             <div class="tag">${tweetobj.user.handle}</div>
           </header>
