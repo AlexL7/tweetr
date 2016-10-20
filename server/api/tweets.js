@@ -7,11 +7,11 @@ const tweets  = express.Router();
 module.exports = function(db) {
 
   tweets.get("/", function(req, res) {
-    let tweets = db.getTweets();
+    let tweets = db.getTweets(function(tweets){
+      return res.json(tweets)
+    });
     // simulate delay
-    setTimeout(() => {
-      return res.json(tweets);
-    }, 300);
+
   });
 
   tweets.post("/", function(req, res) {
