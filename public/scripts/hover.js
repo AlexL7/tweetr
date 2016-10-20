@@ -34,9 +34,7 @@ $(document).on(
      $('#composetweet').slideUp("slow")
   }
   $(this).data("clicks", !clicks);
+
   });
-
-
-
 
 });
