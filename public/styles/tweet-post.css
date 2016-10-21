@@ -1,55 +1,55 @@
 .tweet {
-  margin-top:2em;
-  margin-right: 2em;
-  margin-left: 2em;
-  border-radius: 10px;
-  border: solid;
-  border-color: #c1c1c8;
+    margin-top: 2em;
+    margin-right: 2em;
+    margin-left: 2em;
+    border-radius: 10px;
+    border: solid;
+    border-color: #c1c1c8;
 }
-
 
 header {
-  background-color: lightgrey;
-  height: 80px;
-  opacity: 0.5;
-  position: relative;
+    background-color: #d3d3d3;
+    height: 80px;
+    opacity: .5;
+    position: relative;
 }
 
-.hover{
-  opacity: 1;
+.hover {
+    opacity: 1;
 }
+
 header img {
-  width : 60px;
-  height: 60px;
-  border-radius: 10px;
-  float: left;
-  margin: 10px;
-  display: flex;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    float: left;
+    margin: 10px;
+    display: flex;
 }
 
 footer {
-  border-top:solid;
-  border-color: lightgray;
-  border-width:2px;
-}
-.username {
-  font-weight: bold;
-  padding-top: 20px;
-  font-size: 175%;
-  float:left;
+    border-top: solid;
+    border-color: lightgray;
+    border-width: 2px;
 }
 
-article .tweettext{
-  margin: 15px;
+.username {
+    font-weight: 700;
+    padding-top: 20px;
+    font-size: 175%;
+    float: left;
+}
+
+article .tweettext {
+    margin: 15px;
 }
 
 footer .time {
-  font-size: 80%;
-  padding: 6px;
-  margin-left:0;
-  margin-right:10px;
-  width: 80px
-
+    font-size: 80%;
+    padding: 6px;
+    margin-left: 0;
+    margin-right: 10px;
+    width: 80px;
 }
 
 footer {
@@ -57,24 +57,18 @@ footer {
 }
 
 .tag {
-  float:right;
-  margin-top: 25px;
-  text-align: right;
-  padding: 1px;
-
+    float: right;
+    margin-top: 25px;
+    text-align: right;
+    padding: 1px;
 }
 
-
-.icons{
-
-  color:white;
-  text-align: right;
-  margin-right:15px;
-
-
+.icons {
+    color: #fff;
+    text-align: right;
+    margin-right: 15px;
 }
 
 .appear {
-  color:#00B7BE;
+    color: #00B7BE;
 }
-
