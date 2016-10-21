@@ -32,15 +32,16 @@ function renderTweets(tweetdata){
 // @description: converts the tweet object data into an html string
 
 function createTweetElement (tweetobj){
-
+ const dayswithdecimals = ((tweetobj.created_at)/(1000*60*60*24))%7;
+ const days = Math.round(dayswithdecimals*10)/10;
  var html_data = `<article class="tweet"><header><img class= "profilepic" src="${tweetobj.user.avatars.small}">
           <div class="username"> ${tweetobj.user.name}</div>
             <div class="tag">${tweetobj.user.handle}</div>
           </header>
             <div class="tweettext">${escape(tweetobj.content.text)}</div>
           <footer>
-            <div class="time">${tweetobj.created_at} days</div>
-            <div class="icons"> flag,share,like </div>
+            <div class="time">${days} days ago </div>
+            <div class="icons"> 🏴  🔁  ❤ </div>
           </footer></article>`;
 
   return html_data;
@@ -89,6 +90,7 @@ function loadTweets (_cb){
 
         $("#error").empty();
 
+
          $.ajax({
             method: 'POST',
             url: "/tweets",
@@ -97,6 +99,8 @@ function loadTweets (_cb){
               loadTweets(renderTweets);
             },
     });
+         $('#tweettextsub').val('');
+         $('span.counter').text('140')
     });
 
 

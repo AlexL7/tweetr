@@ -5,7 +5,7 @@ $(document).ready(function(){
 $(document).on(
   "mouseenter", ".tweet", function() {
      $('.icons', this).addClass("appear"),
-     $('header', this).addClass("hover");});
+     $('header', this).addClass("#nav-bar div hover");});
 
 $(document).on(
   "mouseleave", ".tweet", function() {

@@ -12,6 +12,7 @@ header {
   background-color: lightgrey;
   height: 80px;
   opacity: 0.5;
+  position: relative;
 }
 
 .hover{
@@ -35,6 +36,7 @@ footer {
   font-weight: bold;
   padding-top: 20px;
   font-size: 175%;
+  float:left;
 }
 
 article .tweettext{
@@ -45,21 +47,31 @@ footer .time {
   font-size: 80%;
   padding: 6px;
   margin-left:0;
-  margin-right:0;
-  width: 100px
+  margin-right:10px;
+  width: 80px
 
 }
 
+footer {
+    position: relative;
+}
 
 .tag {
-  float: right;
+  float:right;
+  margin-top: 25px;
+  text-align: right;
+  padding: 1px;
+
 }
 
 
 .icons{
-  margin-left:auto;
-  margin-right:0;
+
   color:white;
+  text-align: right;
+  margin-right:15px;
+
+
 }
 
 .appear {
