@@ -5,11 +5,11 @@ $(document).ready( () => {
 
   $('textarea').on("keyup", () => {
     const maxlength = 140;
-    let length = $(this).val().length;
-    let length = maxlength - length;
-    $('span.counter').text(length);
+    const textlength = $(this).val().length;
+    const lengthremain = maxlength - textlength;
+    $('span.counter').text(lengthremain);
 
-    if (length < 0){
+    if (lengthremain < 0){
       $('span.counter').addClass("red");
     } else {
       $('span.counter').removeClass("red");
